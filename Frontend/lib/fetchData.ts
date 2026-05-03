@@ -10,17 +10,17 @@ import type {
 const SG_OFFSET_MS = 8 * 60 * 60 * 1000; // UTC+8
 
 const CATEGORY_COLORS: Record<string, string> = {
-  "🍔 Food & Drinks": "#6366f1",
-  "🚗 Transport": "#3b82f6",
-  "🎬 Entertainment": "#f59e0b",
-  "🛒 Shopping": "#f97316",
-  "👔 Apparals": "#ec4899",
-  "💊 Healthcare": "#10b981",
-  "💰 Other": "#f43f5e",
+  "🍔 Food & Drinks": "#003f5c",
+  "🚗 Transport": "#00566d",
+  "🎬 Entertainment": "#006c6f",
+  "🛒 Shopping": "#008261",
+  "👔 Apparals": "#009545",
+  "💊 Healthcare": "#68a31b",
+  "💰 Other": "#b2aa00",
 };
 
 const FALLBACK_COLORS = [
-  "#6366f1","#3b82f6","#f59e0b","#10b981","#f43f5e","#f97316","#ec4899","#8b5cf6","#14b8a6",
+  "#ffa600","#3b82f6","#f59e0b","#10b981","#f43f5e","#f97316","#ec4899","#8b5cf6","#14b8a6",
 ];
 
 function toSGTime(date: Date): Date {
