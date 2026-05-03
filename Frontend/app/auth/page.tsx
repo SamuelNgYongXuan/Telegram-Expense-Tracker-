@@ -13,9 +13,9 @@ function AuthInner() {
     if (token) {
       // Persist token in localStorage, then redirect to dashboard
       localStorage.setItem("expense_auth_token", token);
-      router.replace("/");
+      router.replace(`/?token=${token}`);
     } else {
-      router.replace("/");
+      router.replace(`/?token=${token}`);
     }
   }, [params, router]);
 

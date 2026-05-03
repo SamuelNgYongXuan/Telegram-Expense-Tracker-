@@ -33,17 +33,27 @@ export default function DashboardPage() {
   // ── Resolve auth token → internal user id ──
   useEffect(() => {
     async function resolveUser() {
-      const token = localStorage.getItem("expense_auth_token");
-      if (!token) { setAuthError(true); setLoading(false); return; }
+    // Check URL param first (coming from /auth redirect)
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlToken = urlParams.get("token");
 
-      const telegramId = await getUserIdFromToken(token);
-      if (!telegramId) { setAuthError(true); setLoading(false); return; }
+    const token = urlToken || localStorage.getItem("expense_auth_token");
+    if (!token) { setAuthError(true); setLoading(false); return; }
 
-      const id = await getInternalUserId(telegramId);
-      if (!id) { setAuthError(true); setLoading(false); return; }
+    // Save it for future visits
+    localStorage.setItem("expense_auth_token", token);
 
-      setUserId(id);
-    }
+    // Clean the token from the URL without a page reload
+    window.history.replaceState({}, "", "/");
+
+    const telegramId = await getUserIdFromToken(token);
+    if (!telegramId) { setAuthError(true); setLoading(false); return; }
+
+    const id = await getInternalUserId(telegramId);
+    if (!id) { setAuthError(true); setLoading(false); return; }
+
+    setUserId(id);
+  }
     resolveUser();
   }, []);
 
