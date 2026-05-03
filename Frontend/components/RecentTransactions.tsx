@@ -76,11 +76,11 @@ export default function RecentTransactions({ transactions }: RecentTransactionsP
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
       <div className="px-5 pt-5 pb-3">
         <h2 className="text-base font-semibold text-gray-900">Transactions</h2>
-        <p className="text-xs text-gray-400 mt-0.5">{transactions.length} this month</p>
+        <p className="text-xs text-gray-400 mt-0.5">{transactions.length} this month · showing latest 6</p>
       </div>
 
       <div className="divide-y divide-gray-50">
-        {transactions.map((tx) => {
+          {transactions.slice(0, 6).map((tx) => {
           const color = getCategoryColor(tx.category);
           const icon  = getCategoryIcon(tx.category);
 

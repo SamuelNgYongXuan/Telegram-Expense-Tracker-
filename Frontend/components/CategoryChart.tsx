@@ -29,7 +29,7 @@ const renderActiveShape = (props: any) => {
         ${value.toFixed(2)}
       </text>
       <text x={cx} y={cy + 28} textAnchor="middle" fill={fill} style={{ fontSize: 12, fontWeight: 600 }}>
-        {(percent * 100).toFixed(1)}%
+        {(percent).toFixed(1)}%
       </text>
       <Sector
         cx={cx} cy={cy}
@@ -98,7 +98,7 @@ export default function CategoryChart({ categories }: CategoryChartProps) {
             <span className="flex-1 text-sm font-medium text-gray-700 text-left">
               {cat.name}
             </span>
-            <span className="text-xs text-gray-400 mr-2">{cat.percent}%</span>
+            <span className="text-xs text-gray-400 mr-2">{cat.percent.toFixed(1)}%</span>
             <span className="text-sm font-semibold text-gray-900">
               ${cat.amount.toFixed(2)}
             </span>
