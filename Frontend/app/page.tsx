@@ -171,7 +171,7 @@ export default function DashboardPage() {
             />
 
             {data.categories.length > 0 ? (
-              <CategoryChart categories={data.categories} />
+              <CategoryChart categories={data.categories} transactions={data.transactions} />
             ) : (
               <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center text-gray-400 text-sm">
                 No category data for this month.
